@@ -19,16 +19,24 @@
         <div>
             <h1><a href="">Django Blog</a></h1>
         </div>
+        {% for i in posts %}
         <div>
-            <p>published: 01.03.2017, 02:14</p>
-            <h2><a href="">My first post</a></h2>
-            <p>Blog web en el que puedes compartir cualquier clase de articulo con los demas, haciendo de la web un mundo mas entretenido.</p>
+            <!-- metodo para acceder a la fecha de mi blog  -->
+            <p>published: {{ i.published_date }}</p>
+            <!-- metodo para acceder al titulo de mi blog -->
+            <h2><a href="">{{ i.title }}</a></h2>
+            <!-- metodo para acceder al texto de mi blog-->
+            <p> {{ i.text|linebreaksbr }} </p>
         </div>
+        {% endfor %}
 
         <div>
             <p>01.03.2017, 02:14</p>
             <h2><a href="">My second post</a></h2>
-            <p>Aprendiendo a utilizar django como framework base de mi blog web.</p>
+            <!-- uso de ciclos en html python -->
+            {% for i in posts %}
+            {{ i }}
+            {% endfor %}
         </div>
     </body>
 </html>
