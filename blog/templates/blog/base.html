@@ -1,0 +1,39 @@
+{% load static %}
+<!-- staticfiles -->
+
+<!--
+    <h1>Un título</h1> - para tu título más importante
+    <h2>Un subtítulo</h2> - para el título del siguiente nivel
+    <h3>Un subsubtítulo</h3> - ... y así hasta <h6>
+    <em>texto</em> - pone en cursiva tu texto
+    <strong>texto</strong> - pone en negrita tu texto
+    <br /> - un salto de línea (no puedes colocar nada dentro de br)
+    <a href="https://djangogirls.org">link</a> - crea un vínculo
+    <ul><li>primer elemento</li><li>segundo elemento</li></ul> - crea una lista, ¡igual que esta!
+    <div></div> - define una sección de la página
+-->
+
+<html>
+    <head>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+         <link href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+        <!-- presentacion de la pagina web -->
+        <title>Django blog</title>
+    </head>
+
+    <body>
+        <div class="page-header">
+            <h1><a href="/">Django Girls Blog</a></h1>
+        </div>
+        <div class="content container">
+            <div class="row">
+                <div class="col-md-8">
+                {% block content %}
+                {% endblock %}
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
