@@ -141,9 +141,14 @@ SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
     'fields': 'id,name,email', 
     }
 
-# Entorno facebook
+# Entorno facebook pythonanywhere
 SOCIAL_AUTH_FACEBOOK_KEY = '1313521202018615'
 SOCIAL_AUTH_FACEBOOK_SECRET = 'b7e290b1ad74a544a45eb39e4e57c13f'
+
+
+# Entorno facebook local
+#SOCIAL_AUTH_FACEBOOK_KEY = '1970282936591597'
+#SOCIAL_AUTH_FACEBOOK_SECRET = '962b00812a3cf8e6558664b0f600f665'
 
 #email
 EMAIL_PORT = 587 

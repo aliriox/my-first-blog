@@ -4,6 +4,7 @@ from .models import Post
 from .forms import PostForm
 from django.contrib.auth.models import User
 from django.contrib.auth import logout
+import time
 
 # Create your views here.
 
@@ -51,8 +52,11 @@ def home(request):
         return render(request, 'blog/home.html',context)
     else:
         print"False"
-        #idn = User.objects.get(username = request.user)
-        #subject = "correo automatico de Django Web Blog"
-        #message = "Has iniciado sesion satisfactoriamente en Django Web Blog"
-        #idn.email_user(subject,message)
+        idn = User.objects.get(username = request.user)
+        subject = "correo automatico de Django Web Blog"
+        message = "Has iniciado sesion satisfactoriamente en Django Web Blog a las  "
+        hora = time.strftime("%I:%M:%S")
+        fecha = time.strftime("%d/%m/%y")
+        message += str(hora) + "  " + str(fecha)
+        idn.email_user(subject,message)
         return redirect('post_list')
