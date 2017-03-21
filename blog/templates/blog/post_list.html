@@ -12,6 +12,12 @@
                 <p>{{ post.text|linebreaksbr }}</p>
             </div>
         {% endfor %}
+        <li>
+            <h>Hello {{ user.get_full_name|default:user.username }}!</h>
+        </li>
+        <li>
+            <a href="{% url 'auth:logout' %}?next={{ '/' }}">Logout</a>
+        </li>
     {% endblock content %}
 
 </body>

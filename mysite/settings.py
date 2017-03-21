@@ -38,6 +38,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
+    # pip install python-social-auth==0.2.21 version para django 1.10 y python 2.7
+    'social.apps.django_app.default',
+]
+
+AUTHENTICATION_BACKENDS = [
+   'social.backends.facebook.FacebookOAuth2',
+   'social.backends.google.GoogleOAuth2',
+   'social.backends.twitter.TwitterOAuth',
+   'django.contrib.auth.backends.ModelBackend',
 ]
 
 MIDDLEWARE = [
@@ -63,6 +72,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                # Python Social Auth Context Processors
+                'social.apps.django_app.context_processors.backends',
+                'social.apps.django_app.context_processors.login_redirect',
             ],
         },
     },
@@ -120,3 +132,24 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = "/postlist/"
+SOCIAL_AUTH_LOGIN_URL = "/postlist/"
+SOCIAL_AUTH_FACEBOOK_SCOPE =['email']
+
+SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = { 
+    'fields': 'id,name,email', 
+    }
+
+# Entorno facebook
+SOCIAL_AUTH_FACEBOOK_KEY = '1313521202018615'
+SOCIAL_AUTH_FACEBOOK_SECRET = 'b7e290b1ad74a544a45eb39e4e57c13f'
+
+#email
+EMAIL_PORT = 587 
+EMAIL_USE_TLS = True 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER ='clienservi2017@gmail.com'
+EMAIL_HOST_PASSWORD ='clienteservidor'
+DEFAULT_FROM_EMAIL ='clienservi2017@gmail.com'

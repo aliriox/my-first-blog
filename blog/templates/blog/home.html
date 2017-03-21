@@ -1,0 +1,19 @@
+{% extends 'blog/base_2.html' %}
+
+{% block content %}
+ <div>
+ <h1>Autentificacion de Django Web Blog</h1>
+
+ <p>
+   <ul>
+    <li>
+      <!-- logeo de facebook con icono-->
+      <a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}"><img alt="Siguenos en Facebook" src="https://lh3.googleusercontent.com/-NSLbC_ztNls/T6VX0g6z8AI/AAAAAAAAA0A/_vyIBrmZbuY/s48/facebook48.png" width=48 height=48  /></a>
+    </li>
+    <li>
+       <a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}">porfavor inicia sesion con facebook </a>
+    </li>
+   </ul>
+ </p>
+ </div>
+{% endblock %}
