@@ -47,6 +47,13 @@ h1, h2, h3, h4 {
     margin-right: 20px;
 }
 
+.top-menu-2{
+    color: #ffffff;
+    float: right;
+    font-size: 30pt;
+    margin-right: 30px;
+}
+
 .post {
     margin-bottom: 70px;
 }

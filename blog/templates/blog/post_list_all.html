@@ -1,4 +1,4 @@
-{% extends 'blog/base.html' %}
+{% extends 'blog/base_2.html' %}
 
 <body>
 
@@ -8,19 +8,13 @@
                 <div class="date">
                     {{ post.published_date }}
                 </div>
-                <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+                <h1>{{ post.title }}</a></h1>
                 <p>{{ post.text|linebreaksbr }}</p>
             </div>
         {% endfor %}
-        <li>
-            <h>Hello {{ user.get_full_name|default:user.username }}!</h>
-        </li>
-        <li>
-            <a href="{% url 'auth:logout' %}?next={{ '/' }}">Logout</a>
-        </li>
         <div>
             <!-- <input type="button" value="Search"> ejemplo de botones-->
-            <p align="right"><a href="{% url 'post_list_all' %}">Buscar articulos</a></p>
+            <p align="left"><a href="{% url 'post_list' %}">atras</a></p>
         </div>
     {% endblock content %}
 

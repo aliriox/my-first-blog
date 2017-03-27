@@ -5,6 +5,7 @@ from .forms import PostForm
 from django.contrib.auth.models import User
 from django.contrib.auth import logout
 import time
+from smtplib import SMTPRecipientsRefused
 
 # Create your views here.
 
@@ -12,6 +13,10 @@ def post_list(request):
     post = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
     posts = post.filter(author=request.user)
     return render(request, 'blog/post_list.html', {'posts': posts})
+
+def post_list_all(request):
+    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    return render(request, 'blog/post_list_all.html', {'posts': posts})
 
 def post_detail(request, pk):
 	post = get_object_or_404(Post, pk=pk)
@@ -58,5 +63,8 @@ def home(request):
         hora = time.strftime("%I:%M:%S")
         fecha = time.strftime("%d/%m/%y")
         message += str(hora) + "  " + str(fecha)
-        idn.email_user(subject,message)
+        try:
+            idn.email_user(subject,message)
+        except SMTPRecipientsRefused:
+            print "conexion fail"
         return redirect('post_list')

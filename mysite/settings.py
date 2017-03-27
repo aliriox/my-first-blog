@@ -135,13 +135,14 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 SOCIAL_AUTH_LOGIN_REDIRECT_URL = "/postlist/"
 SOCIAL_AUTH_LOGIN_URL = "/postlist/"
+
 SOCIAL_AUTH_FACEBOOK_SCOPE =['email']
 
 SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = { 
     'fields': 'id,name,email', 
     }
 
-# Entorno facebook pythonanywhere
+#Entorno facebook pythonanywhere
 SOCIAL_AUTH_FACEBOOK_KEY = '1756392884677520'
 SOCIAL_AUTH_FACEBOOK_SECRET = '51f54a0a6391f0d8ef30da503b3ac0db'
 
