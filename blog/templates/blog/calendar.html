@@ -1,0 +1,13 @@
+{% extends 'blog/base_2.html' %}
+
+<body>
+    {% block content %}
+      {% if context is not None %}
+        {% for event in context %}
+          <tr><td>{{ event }}</td></tr>
+        {% endfor %}
+      {% else %}
+        <h1> no hay eventos en el calendario</h1>
+      {% endif %}
+    {% endblock content %}
+</body>
