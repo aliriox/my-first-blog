@@ -10,16 +10,15 @@ from smtplib import SMTPRecipientsRefused
 # Create your views here.
 
 from oauth2client.service_account import ServiceAccountCredentials
-from apiclient.discovery import build 
+from apiclient.discovery import build
 
 scopes = ['https://www.googleapis.com/auth/calendar']
 
-credentials = ServiceAccountCredentials.from_json_keyfile_name( 
-    'blog/calendar.json',
+credentials = ServiceAccountCredentials.from_json_keyfile_name(
+    'my-first-blog/blog/calendar.json',
     scopes)
 
 def calendar(request):
-    print "entra a la funcion"
     service_calendar = build('calendar', 'v3', credentials=credentials)
     listevents = service_calendar.events().list(calendarId = 'primary').execute()
     context = listevents['items']
