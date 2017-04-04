@@ -9,7 +9,6 @@ from smtplib import SMTPRecipientsRefused
 
 # Create your views here.
 
-from httplib2 import Http
 from oauth2client.service_account import ServiceAccountCredentials
 from apiclient.discovery import build 
 
@@ -22,7 +21,6 @@ credentials = ServiceAccountCredentials.from_json_keyfile_name(
 def calendar(request):
     print "entra a la funcion"
     service_calendar = build('calendar', 'v3', credentials=credentials)
-    http_auth = credentials.authorize(Http())
     listevents = service_calendar.events().list(calendarId = 'primary').execute()
     context = listevents['items']
     return render(request, 'blog/calendar.html',context)
