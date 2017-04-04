@@ -16,6 +16,8 @@ scopes = ['https://www.googleapis.com/auth/calendar']
 
 credentials = ServiceAccountCredentials.from_json_keyfile_name(
     'my-first-blog/blog/calendar.json',
+    # entorno local 
+    #'blog/calendar.json',
     scopes)
 
 def calendar(request):
